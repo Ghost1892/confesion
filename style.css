@@ -1,3 +1,4 @@
+/* --- CONFIGURACIÓN GENERAL --- */
 * {
     margin: 0;
     padding: 0;
@@ -10,7 +11,10 @@ body {
     justify-content: center;
     align-items: center;
     font-family: 'Segoe UI', sans-serif;
-    overflow: hidden;
+    
+    /* Permite hacer scroll hacia abajo cuando se abre la carta */
+    overflow-y: auto; 
+
     background: linear-gradient(
         135deg,
         #ffe4ec,
@@ -33,7 +37,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 20px;
+    padding: 40px 20px; /* Más espacio arriba y abajo para el scroll */
 }
 
 /* Efecto Vidrio Esmerilado (Glassmorphism) */
