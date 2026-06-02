@@ -1,0 +1,207 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Segoe UI', sans-serif;
+    overflow: hidden;
+    background: linear-gradient(
+        135deg,
+        #ffe4ec,
+        #ffd1dc,
+        #fff0f5,
+        #f8d7ff
+    );
+    background-size: 400% 400%;
+    animation: fondo 15s ease infinite;
+}
+
+@keyframes fondo {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.contenedor {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+/* Efecto Vidrio Esmerilado (Glassmorphism) */
+.tarjeta {
+    width: 90%;
+    max-width: 700px;
+    background: rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    border: 2px solid rgba(255, 255, 255, 0.4);
+    border-radius: 35px;
+    padding: 45px;
+    text-align: center;
+    box-shadow:
+        0 10px 30px rgba(255, 105, 180, .15),
+        0 20px 60px rgba(0, 0, 0, .08);
+    animation: entrada 1.2s ease;
+}
+
+@keyframes entrada {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+h1 {
+    color: #ff4f88;
+    font-size: 3rem;
+    margin-bottom: 20px;
+    text-shadow: 0 0 15px rgba(255, 255, 255, .8);
+}
+
+.mensaje {
+    color: #555;
+    font-size: 1.15rem;
+    line-height: 1.8;
+    margin-bottom: 25px;
+}
+
+/* Estilo general de los botones */
+button {
+    background: linear-gradient(45deg, #ff6fa8, #ff9ec4);
+    color: white;
+    border: none;
+    border-radius: 50px;
+    padding: 15px 35px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: .3s;
+}
+
+button:hover {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 0 25px rgba(255, 105, 180, .4);
+}
+
+/* Efecto de apertura para la confesión */
+#declaracion {
+    opacity: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: .9s ease;
+}
+
+#declaracion.mostrar {
+    opacity: 1;
+    max-height: 2000px;
+    margin-top: 30px;
+}
+
+h2 {
+    color: #ff4f88;
+    margin-bottom: 20px;
+}
+
+#declaracion p {
+    color: #444;
+    line-height: 1.9;
+    margin-bottom: 15px;
+    text-align: left;
+    padding: 0 10px;
+}
+
+h3 {
+    margin-top: 25px;
+    color: #ff2d75;
+    font-size: 2rem;
+    text-shadow: 0 0 12px rgba(255, 45, 117, .2);
+}
+
+/* --- BOTONES DE RESPUESTA FINAL --- */
+.botones-respuesta {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 30px;
+}
+
+/* Botón SÍ */
+.btn-si {
+    background: linear-gradient(45deg, #00f2fe, #4facfe);
+    transform: scale(1.1);
+}
+
+.btn-si:hover {
+    transform: scale(1.2) translateY(-3px);
+    box-shadow: 0 0 25px rgba(79, 172, 254, 0.6);
+}
+
+/* Botón NO (Se escapa) */
+.btn-no {
+    background: linear-gradient(45deg, #95a5a6, #bdc3c7);
+    position: relative;
+    transition: 0.3s ease-in-out;
+}
+
+.btn-no:hover {
+    transform: translate(-130px, -50px) scale(0.5);
+    opacity: 0.3;
+}
+
+/* --- CORAZONES ANIMADOS EN EL FONDO --- */
+.corazones::before,
+.corazones::after {
+    content: "🩷";
+    position: fixed;
+    bottom: -50px;
+    font-size: 45px;
+    opacity: 0;
+    z-index: -1;
+    animation: flotar 10s linear infinite;
+}
+
+.corazones::before {
+    left: 10%;
+    content: "🎀";
+}
+
+.corazones::after {
+    left: 85%;
+    animation-delay: 5s;
+}
+
+@keyframes flotar {
+    from {
+        transform: translateY(100vh) rotate(0deg);
+        opacity: 0;
+    }
+    20% {
+        opacity: .6;
+    }
+    to {
+        transform: translateY(-150px) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+/* Diseño Adaptable para Celulares */
+@media (max-width: 480px) {
+    h1 { font-size: 2rem; }
+    h3 { font-size: 1.4rem; }
+    .tarjeta { padding: 25px 15px; }
+    .botones-respuesta { flex-direction: column; align-items: center; gap: 15px; }
+    .btn-no:hover { transform: translate(0px, -80px) scale(0.5); }
+}

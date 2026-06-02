@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para Ti ❤️</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<audio id="musicaFondo" loop>
+    <source src="SpotiDown.App - Stress Relief - late night drive home.mp3" type="audio/mpeg">
+</audio>
+
+<div class="corazones"></div>
+
+<div class="contenedor">
+    <div class="tarjeta">
+
+        <h1>Para Isa ❤️</h1>
+
+        <p class="mensaje">
+            Antes de que sigas, quiero que sepas que esto lo hice pensando en ti. ❤️
+        </p>
+
+        <button onclick="mostrarMensaje()">
+            Presiona aquí ✨
+        </button>
+
+        <div id="declaracion">
+
+            <h2>✨ Mi confesión ✨</h2>
+
+            <p>La verdad es que llevo bastante tiempo queriendo decirte esto.</p>
+
+            <p>Desde que empezamos a hablar hubo algo en ti que me llamó la atención. Con el tiempo me di cuenta de que me encantaba hablar contigo, saber cómo estabas y compartir momentos contigo. Sin darme cuenta, empecé a sentir algo más que una simple amistad.</p>
+
+            <p>Sé que he cometido errores y que algunas de mis decisiones no fueron las mejores. De verdad me arrepiento de las cosas que hice mal y quería que lo supieras. Nunca fue mi intención lastimarte ni hacer que pensaras menos de mí.</p>
+
+            <p>Me costó mucho encontrar la forma de decirte todo esto, y aunque hacer una página web probablemente no sea la forma más normal de declararse, quería hacer algo especial porque tú eres alguien especial para mí.</p>
+
+            <p>No sé cuál será tu respuesta, pero preferí ser sincero contigo y decirte lo que siento en lugar de seguir guardándolo.</p>
+
+            <p>Porque sí... me gustas mucho. ❤️</p>
+
+            <p>Y ahora que ya sabes lo que siento, quiero hacerte una pregunta muy importante...</p>
+
+            <h3>Después de todo lo que te he dicho... ¿te gustaría ser mi novia? ❤️🌹</h3>
+
+            <div class="botones-respuesta">
+                <button class="btn-si" onclick="alert('¡Sabía que dirías que sí! 💖 Te quiero muchísimo.')">¡SÍ! 💖</button>
+                <button class="btn-no">No... 😢</button>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+<script>
+    function mostrarMensaje() {
+        // 1. Abre la carta animada
+        document.getElementById("declaracion").classList.add("mostrar");
+        
+        // 2. Reproduce tu canción de fondo de manera segura
+        var musica = document.getElementById("musicaFondo");
+        musica.play().catch(function(error) {
+            console.log("El navegador bloqueó el audio momentáneamente:", error);
+        });
+    }
+</script>
+
+</body>
+</html>
