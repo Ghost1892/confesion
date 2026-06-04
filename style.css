@@ -1,4 +1,3 @@
-/* --- CONFIGURACIÓN GENERAL --- */
 * {
     margin: 0;
     padding: 0;
@@ -13,15 +12,7 @@ body {
     font-family: 'Segoe UI', sans-serif;
     overflow-y: auto; 
     overflow-x: hidden;
-
-    /* Fondo estético Sanrio Soft */
-    background: linear-gradient(
-        135deg,
-        #ffeef4,
-        #ffd5e1,
-        #f0f7ff,
-        #e3f2fd
-    );
+    background: linear-gradient(135deg, #ffeef4, #ffd5e1, #f0f7ff, #e3f2fd);
     background-size: 400% 400%;
     animation: fondo 15s ease infinite;
 }
@@ -40,7 +31,6 @@ body {
     padding: 40px 20px;
 }
 
-/* Tarjeta Vidrio Esmerilado (Glassmorphism) */
 .tarjeta {
     width: 90%;
     max-width: 700px;
@@ -51,14 +41,11 @@ body {
     border-radius: 35px;
     padding: 45px;
     text-align: center;
-    box-shadow:
-        0 10px 30px rgba(255, 140, 180, .15),
-        0 20px 60px rgba(0, 0, 0, .05);
+    box-shadow: 0 10px 30px rgba(255, 140, 180, .15), 0 20px 60px rgba(0, 0, 0, .05);
     transition: opacity 0.6s ease, transform 0.6s ease;
     z-index: 10;
 }
 
-/* --- TARJETA FINAL (PANTALLA DEL SÍ) --- */
 .tarjeta-final {
     display: none; 
     opacity: 0;
@@ -79,7 +66,6 @@ body {
     font-weight: 500;
 }
 
-/* --- BOTÓN DE CINNAMOROLL (VIDEO INTERACTIVO) --- */
 .enlace-video {
     text-decoration: none;
     display: inline-block;
@@ -137,7 +123,6 @@ body {
     100% { transform: scale(1); }
 }
 
-/* --- COMPONENTES PANTALLA PRINCIPAL --- */
 h1 { color: #ff4f88; font-size: 3rem; margin-bottom: 20px; }
 .mensaje { color: #555; font-size: 1.15rem; line-height: 1.8; margin-bottom: 25px; }
 h2 { color: #ff4f88; margin-bottom: 20px; }
@@ -164,14 +149,12 @@ button:hover {
 #declaracion { opacity: 0; max-height: 0; overflow: hidden; transition: .9s ease; }
 #declaracion.mostrar { opacity: 1; max-height: 2000px; margin-top: 30px; }
 
-/* --- BOTONES DE RESPUESTA SÍ / NO --- */
 .botones-respuesta { display: flex; justify-content: center; gap: 20px; margin-top: 30px; }
 .btn-si { background: linear-gradient(45deg, #b3e5fc, #4fc3f7); transform: scale(1.1); }
 .btn-si:hover { transform: scale(1.2) translateY(-3px); box-shadow: 0 0 25px rgba(79, 195, 247, 0.6); }
 .btn-no { background: linear-gradient(45deg, #bdc3c7, #95a5a6); position: relative; transition: 0.3s ease-in-out; }
 .btn-no:hover { transform: translate(-130px, -50px) scale(0.5); opacity: 0.3; }
 
-/* --- CONTENEDOR FIJO DE LA LLUVIA --- */
 .lluvia-personajes {
     position: fixed;
     top: 0;
@@ -183,7 +166,6 @@ button:hover {
     overflow: hidden;
 }
 
-/* --- ESTILOS PARA LA LLUVIA DE PERSONAJES REALES DESDE JS --- */
 .personaje-flotante-js {
     position: absolute;
     bottom: -100px;
@@ -195,23 +177,12 @@ button:hover {
 }
 
 @keyframes flotarHaciaArriba {
-    from {
-        transform: translateY(0) rotate(0deg);
-        opacity: 0;
-    }
-    10% {
-        opacity: 0.9;
-    }
-    90% {
-        opacity: 0.9;
-    }
-    to {
-        transform: translateY(-115vh) rotate(360deg);
-        opacity: 0;
-    }
+    from { transform: translateY(0) rotate(0deg); opacity: 0; }
+    10% { opacity: 0.9; }
+    90% { opacity: 0.9; }
+    to { transform: translateY(-115vh) rotate(360deg); opacity: 0; }
 }
 
-/* --- ADAPTACIÓN RESPONSIVA CELULARES --- */
 @media (max-width: 480px) {
     h1 { font-size: 2rem; }
     h3 { font-size: 1.4rem; }

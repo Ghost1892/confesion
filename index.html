@@ -46,7 +46,7 @@
         <a href="AQUÍ_PEGA_EL_ENLACE_DE_TU_VIDEO" target="_blank" class="enlace-video">
             <div class="contenedor-foto">
                 <span class="icono-play">▶</span>
-                <img src="https://api.iconify.design/twemoji:dog-face.svg" id="cinnamorollCentro" alt="Cinnamoroll" class="foto-detalle">
+                <img src="cinnamoroll.png" id="cinnamorollCentro" alt="Cinnamoroll" class="foto-detalle">
             </div>
             <p class="texto-video-ayuda">¡Toca a Cinnamoroll para ver nuestro video! 🎬</p>
         </a>
@@ -58,64 +58,7 @@
 
 </div>
 
-<script>
-    function mostrarMensaje() {
-        document.getElementById("declaracion").classList.add("mostrar");
-        var musica = document.getElementById("musicaFondo");
-        musica.play().catch(function(error) { console.log(error); });
-    }
-
-    function pantallaFinal() {
-        var cartaPrincipal = document.getElementById("cartaPrincipal");
-        cartaPrincipal.style.opacity = "0";
-        cartaPrincipal.style.transform = "translateY(-20px)";
-        
-        // Carga la ilustración oficial de Cinnamoroll en el centro
-        document.getElementById("cinnamorollCentro").src = "https://pub-c5e31b5cdafb419a82e697e85b37f172.r2.dev/cinnamoroll.svg";
-        
-        setTimeout(function() {
-            cartaPrincipal.style.display = "none";
-            var cartaFinal = document.getElementById("cartaFinal");
-            cartaFinal.style.display = "block";
-            
-            setTimeout(function() {
-                cartaFinal.style.opacity = "1";
-                cartaFinal.style.transform = "translateY(0)";
-                // Invoca la lluvia con Mocha, Chiffon, Cappuccino y Espresso
-                crearLluviaSanrio();
-            }, 50);
-        }, 600);
-    }
-
-    function crearLluviaSanrio() {
-        const contenedor = document.getElementById("contenedorPersonajes");
-        
-        // Enlaces seguros de los personajes que pediste
-        const personajesLinks = [
-            "https://pub-c5e31b5cdafb419a82e697e85b37f172.r2.dev/mocha.svg",
-            "https://pub-c5e31b5cdafb419a82e697e85b37f172.r2.dev/chiffon.svg",
-            "https://pub-c5e31b5cdafb419a82e697e85b37f172.r2.dev/cappuccino.svg",
-            "https://pub-c5e31b5cdafb419a82e697e85b37f172.r2.dev/espresso.svg"
-        ];
-
-        setInterval(() => {
-            const imgPersonaje = document.createElement("img");
-            imgPersonaje.src = personajesLinks[Math.floor(Math.random() * personajesLinks.length)];
-            imgPersonaje.className = "personaje-flotante-js";
-            
-            // Posición y tamaño aleatorio
-            imgPersonaje.style.left = Math.random() * 85 + 5 + "%";
-            imgPersonaje.style.width = Math.random() * 20 + 65 + "px"; 
-            imgPersonaje.style.height = imgPersonaje.style.width;
-            imgPersonaje.style.animationDuration = Math.random() * 3 + 5 + "s"; 
-            
-            contenedor.appendChild(imgPersonaje);
-
-            // Se elimina del código al salir de la pantalla para evitar lentitud
-            setTimeout(() => { imgPersonaje.remove(); }, 8000);
-        }, 900);
-    }
-</script>
+<script src="script.js"></script>
 
 </body>
 </html>
