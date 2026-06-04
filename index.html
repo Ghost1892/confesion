@@ -12,61 +12,108 @@
     <source src="SpotiDown.App - Stress Relief - late night drive home.mp3" type="audio/mpeg">
 </audio>
 
-<div class="corazones"></div>
+<div id="contenedorPersonajes" class="lluvia-personajes"></div>
 
 <div class="contenedor">
-    <div class="tarjeta">
-
+    
+    <div class="tarjeta" id="cartaPrincipal">
         <h1>Para Isa ❤️</h1>
+        <p class="mensaje">Antes de que sigas, quiero que sepas que esto lo hice pensando en ti. ❤️</p>
 
-        <p class="mensaje">
-            Antes de que sigas, quiero que sepas que esto lo hice pensando en ti. ❤️
-        </p>
-
-        <button onclick="mostrarMensaje()">
-            Presiona aquí ✨
-        </button>
+        <button onclick="mostrarMensaje()">Presiona aquí ✨</button>
 
         <div id="declaracion">
-
             <h2>✨ Mi confesión ✨</h2>
-
             <p>La verdad es que llevo bastante tiempo queriendo decirte esto.</p>
-
             <p>Desde que empezamos a hablar hubo algo en ti que me llamó la atención. Con el tiempo me di cuenta de que me encantaba hablar contigo, saber cómo estabas y compartir momentos contigo. Sin darme cuenta, empecé a sentir algo más que una simple amistad.</p>
-
             <p>Sé que he cometido errores y que algunas de mis decisiones no fueron las mejores. De verdad me arrepiento de las cosas que hice mal y quería que lo supieras. Nunca fue mi intención lastimarte ni hacer que pensaras menos de mí.</p>
-
             <p>Me costó mucho encontrar la forma de decirte todo esto, y aunque hacer una página web probablemente no sea la forma más normal de declararse, quería hacer algo especial porque tú eres alguien especial para mí.</p>
-
             <p>No sé cuál será tu respuesta, pero preferí ser sincero contigo y decirte lo que siento en lugar de seguir guardándolo.</p>
-
             <p>Porque sí... me gustas mucho. ❤️</p>
-
-            <p>Y ahora que ya sabes lo que siento, quiero hacerte una pregunta muy importante...</p>
-
+            
             <h3>Después de todo lo que te he dicho... ¿te gustaría ser mi novia? ❤️🌹</h3>
 
             <div class="botones-respuesta">
-                <button class="btn-si" onclick="alert('¡Sabía que dirías que sí! 💖 Te quiero muchísimo.')">¡SÍ! 💖</button>
+                <button class="btn-si" onclick="pantallaFinal()">¡SÍ! 💖</button>
                 <button class="btn-no">No... 😢</button>
             </div>
-
         </div>
-
     </div>
+
+    <div class="tarjeta tarjeta-final" id="cartaFinal">
+        <h2>¡Me haces el más feliz del mundo! 💖</h2>
+        
+        <a href="AQUÍ_PEGA_EL_ENLACE_DE_TU_VIDEO" target="_blank" class="enlace-video">
+            <div class="contenedor-foto">
+                <span class="icono-play">▶</span>
+                <img src="https://api.iconify.design/twemoji:dog-face.svg" id="cinnamorollCentro" alt="Cinnamoroll" class="foto-detalle">
+            </div>
+            <p class="texto-video-ayuda">¡Toca a Cinnamoroll para ver nuestro video! 🎬</p>
+        </a>
+
+        <p class="mensaje-final">
+            No te imaginas lo mucho que significa esto para mí. Prometo dar lo mejor de mí, cuidarte, escucharte y recordarte siempre lo especial que eres. Gracias por darme esta oportunidad. Oficialmente empieza nuestra historia. 🐻❤️
+        </p>
+    </div>
+
 </div>
 
 <script>
     function mostrarMensaje() {
-        // 1. Abre la carta animada
         document.getElementById("declaracion").classList.add("mostrar");
-        
-        // 2. Reproduce tu canción de fondo de manera segura
         var musica = document.getElementById("musicaFondo");
-        musica.play().catch(function(error) {
-            console.log("El navegador bloqueó el audio momentáneamente:", error);
-        });
+        musica.play().catch(function(error) { console.log(error); });
+    }
+
+    function pantallaFinal() {
+        var cartaPrincipal = document.getElementById("cartaPrincipal");
+        cartaPrincipal.style.opacity = "0";
+        cartaPrincipal.style.transform = "translateY(-20px)";
+        
+        // Carga la ilustración oficial de Cinnamoroll en el centro
+        document.getElementById("cinnamorollCentro").src = "https://pub-c5e31b5cdafb419a82e697e85b37f172.r2.dev/cinnamoroll.svg";
+        
+        setTimeout(function() {
+            cartaPrincipal.style.display = "none";
+            var cartaFinal = document.getElementById("cartaFinal");
+            cartaFinal.style.display = "block";
+            
+            setTimeout(function() {
+                cartaFinal.style.opacity = "1";
+                cartaFinal.style.transform = "translateY(0)";
+                // Invoca la lluvia con Mocha, Chiffon, Cappuccino y Espresso
+                crearLluviaSanrio();
+            }, 50);
+        }, 600);
+    }
+
+    function crearLluviaSanrio() {
+        const contenedor = document.getElementById("contenedorPersonajes");
+        
+        // Enlaces seguros de los personajes que pediste
+        const personajesLinks = [
+            "https://pub-c5e31b5cdafb419a82e697e85b37f172.r2.dev/mocha.svg",
+            "https://pub-c5e31b5cdafb419a82e697e85b37f172.r2.dev/chiffon.svg",
+            "https://pub-c5e31b5cdafb419a82e697e85b37f172.r2.dev/cappuccino.svg",
+            "https://pub-c5e31b5cdafb419a82e697e85b37f172.r2.dev/espresso.svg"
+        ];
+
+        setInterval(() => {
+            const imgPersonaje = document.createElement("img");
+            imgPersonaje.src = personajesLinks[Math.floor(Math.random() * personajesLinks.length)];
+            imgPersonaje.className = "personaje-flotante-js";
+            
+            // Posición y tamaño aleatorio
+            imgPersonaje.style.left = Math.random() * 85 + 5 + "%";
+            imgPersonaje.style.width = Math.random() * 20 + 65 + "px"; 
+            imgPersonaje.style.height = imgPersonaje.style.width;
+            imgPersonaje.style.animationDuration = Math.random() * 3 + 5 + "s"; 
+            
+            contenedor.appendChild(imgPersonaje);
+
+            // Se elimina del código al salir de la pantalla para evitar lentitud
+            setTimeout(() => { imgPersonaje.remove(); }, 8000);
+        }, 900);
     }
 </script>
 
